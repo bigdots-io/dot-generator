@@ -1,7 +1,5 @@
 "use strict";
 
-var characters = require('./characters');
-
 class TypeWriter {
   constructor(options) {
     options = options || {};
