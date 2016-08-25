@@ -1,5 +1,9 @@
 "use strict";
 
+var Fonts = {
+  'system-micro': require('./fonts/system-micro/characters')
+};
+
 class TypeWriter {
   constructor(options) {
     options = options || {};
@@ -11,7 +15,7 @@ class TypeWriter {
   }
 
   text(copy, callback) {
-    var characters = require(`./fonts/${this.font}/characters`);
+    var characters = Fonts[this.font];
     for (let i = 0; i < copy.length; i++) {
       var points = characters[copy[i]];
       if(points) {
