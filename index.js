@@ -15,43 +15,53 @@ class TypeWriter {
     this.alignment = options.alignment || 'left';
   }
 
+  static availableFonts() {
+    return Object.keys(Fonts);
+  }
+
   text(copy, callback) {
     var font = Fonts[this.font],
         characters = font.characters;
 
     if(this.alignment === 'left') {
       for (let i = 0; i < copy.length; i++) {
-        var character = characters[copy[i]],
-            coordinates = character.coordinates;
+        var character = characters[copy[i]];
 
-        if(coordinates) {
-          coordinates.forEach((point) => {
-            callback({
-              y: this.row + point.y,
-              x: this.column + point.x
+        if(character) {
+          var coordinates = character.coordinates;
+
+          if(coordinates) {
+            coordinates.forEach((point) => {
+              callback({
+                y: this.row + point.y,
+                x: this.column + point.x
+              });
             });
-          });
 
-          var width = character.width || font.width;
-          this.column = this.column + width + this.spaceBetweenLetters;
+            var width = character.width || font.width;
+            this.column = this.column + width + this.spaceBetweenLetters;
+          }
         }
       }
     } else {
       this.column -= characters[copy[copy.length - 1]].width || font.width;
       for (let i = copy.length - 1; i >= 0; i--) {
-        var character = characters[copy[i]],
-            coordinates = character.coordinates;
+        var character = characters[copy[i]];
 
-        if(coordinates) {
-          coordinates.forEach((point) => {
-            callback({
-              y: this.row + point.y,
-              x: this.column + point.x
+        if(character) {
+          var coordinates = character.coordinates;
+
+          if(coordinates) {
+            coordinates.forEach((point) => {
+              callback({
+                y: this.row + point.y,
+                x: this.column + point.x
+              });
             });
-          });
 
-          var width = character.width || font.width;
-          this.column = this.column - width - this.spaceBetweenLetters;
+            var width = character.width || font.width;
+            this.column = this.column - width - this.spaceBetweenLetters;
+          }
         }
       }
     }

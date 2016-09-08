@@ -2,6 +2,9 @@
   "height": 6,
   "width": 5,
   "characters": {
+    " ": {
+      "coordinates": []
+    },
     "0": {
       "coordinates": [
         {
