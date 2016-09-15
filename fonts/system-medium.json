@@ -1,7 +1,77 @@
 {
   "height": 14,
   "width": 6,
+  "name": "System Medium",
+  "description": "System standard font for displaying characters when height is not a constraint",
+  "author": "Roy Kolak",
+  "monospace": false,
   "characters": {
+    " ": {
+      "coordinates": []
+    },
+    ".": {
+      "coordinates": []
+    },
+    "(": {
+      "coordinates": []
+    },
+    ")": {
+      "coordinates": []
+    },
+    "-": {
+      "coordinates": []
+    },
+    "]": {
+      "coordinates": []
+    },
+    "[": {
+      "coordinates": []
+    },
+    ":": {
+      "coordinates": []
+    },
+    ";": {
+      "coordinates": []
+    },
+    ",": {
+      "coordinates": []
+    },
+    "?": {
+      "coordinates": []
+    },
+    "/": {
+      "coordinates": []
+    },
+    "%": {
+      "coordinates": []
+    },
+    "#": {
+      "coordinates": []
+    },
+    "$": {
+      "coordinates": []
+    },
+    "!": {
+      "coordinates": []
+    },
+    "@": {
+      "coordinates": []
+    },
+    "&": {
+      "coordinates": []
+    },
+    "*": {
+      "coordinates": []
+    },
+    "^": {
+      "coordinates": []
+    },
+    "_": {
+      "coordinates": []
+    },
+    "=": {
+      "coordinates": []
+    },
     "0": {
       "coordinates": [
         {
@@ -392,36 +462,6 @@
           "opacity": 1
         },
         {
-          "y": 6,
-          "x": 4,
-          "opacity": 1
-        },
-        {
-          "y": 6,
-          "x": 3,
-          "opacity": 1
-        },
-        {
-          "y": 6,
-          "x": 2,
-          "opacity": 1
-        },
-        {
-          "y": 6,
-          "x": 1,
-          "opacity": 1
-        },
-        {
-          "y": 7,
-          "x": 5,
-          "opacity": 1
-        },
-        {
-          "y": 8,
-          "x": 5,
-          "opacity": 1
-        },
-        {
           "y": 9,
           "x": 5,
           "opacity": 1
@@ -459,6 +499,36 @@
         {
           "y": 11,
           "x": 0,
+          "opacity": 1
+        },
+        {
+          "y": 8,
+          "x": 5,
+          "opacity": 1
+        },
+        {
+          "y": 6,
+          "x": 1,
+          "opacity": 1
+        },
+        {
+          "y": 6,
+          "x": 2,
+          "opacity": 1
+        },
+        {
+          "y": 6,
+          "x": 3,
+          "opacity": 1
+        },
+        {
+          "y": 6,
+          "x": 4,
+          "opacity": 1
+        },
+        {
+          "y": 7,
+          "x": 5,
           "opacity": 1
         }
       ]
@@ -819,18 +889,8 @@
           "opacity": 1
         },
         {
-          "y": 7,
-          "x": 5,
-          "opacity": 1
-        },
-        {
           "y": 6,
-          "x": 4,
-          "opacity": 1
-        },
-        {
-          "y": 6,
-          "x": 3,
+          "x": 1,
           "opacity": 1
         },
         {
@@ -840,7 +900,17 @@
         },
         {
           "y": 6,
-          "x": 1,
+          "x": 3,
+          "opacity": 1
+        },
+        {
+          "y": 6,
+          "x": 4,
+          "opacity": 1
+        },
+        {
+          "y": 7,
+          "x": 5,
           "opacity": 1
         }
       ]
@@ -893,21 +963,6 @@
           "opacity": 1
         },
         {
-          "y": 5,
-          "x": 4,
-          "opacity": 1
-        },
-        {
-          "y": 6,
-          "x": 3,
-          "opacity": 1
-        },
-        {
-          "y": 7,
-          "x": 2,
-          "opacity": 1
-        },
-        {
           "y": 8,
           "x": 2,
           "opacity": 1
@@ -930,6 +985,21 @@
         {
           "y": 12,
           "x": 2,
+          "opacity": 1
+        },
+        {
+          "y": 7,
+          "x": 2,
+          "opacity": 1
+        },
+        {
+          "y": 6,
+          "x": 3,
+          "opacity": 1
+        },
+        {
+          "y": 5,
+          "x": 4,
           "opacity": 1
         }
       ]
@@ -992,36 +1062,11 @@
           "opacity": 1
         },
         {
-          "y": 6,
-          "x": 4,
-          "opacity": 1
-        },
-        {
-          "y": 6,
-          "x": 1,
-          "opacity": 1
-        },
-        {
           "y": 5,
           "x": 0,
           "opacity": 1
         },
         {
-          "y": 6,
-          "x": 2,
-          "opacity": 1
-        },
-        {
-          "y": 6,
-          "x": 3,
-          "opacity": 1
-        },
-        {
-          "y": 7,
-          "x": 5,
-          "opacity": 1
-        },
-        {
           "y": 8,
           "x": 5,
           "opacity": 1
@@ -1079,6 +1124,31 @@
         {
           "y": 8,
           "x": 0,
+          "opacity": 1
+        },
+        {
+          "y": 6,
+          "x": 1,
+          "opacity": 1
+        },
+        {
+          "y": 6,
+          "x": 2,
+          "opacity": 1
+        },
+        {
+          "y": 6,
+          "x": 3,
+          "opacity": 1
+        },
+        {
+          "y": 6,
+          "x": 4,
+          "opacity": 1
+        },
+        {
+          "y": 7,
+          "x": 5,
           "opacity": 1
         },
         {
@@ -1141,26 +1211,6 @@
           "opacity": 1
         },
         {
-          "y": 6,
-          "x": 1,
-          "opacity": 1
-        },
-        {
-          "y": 6,
-          "x": 2,
-          "opacity": 1
-        },
-        {
-          "y": 6,
-          "x": 3,
-          "opacity": 1
-        },
-        {
-          "y": 6,
-          "x": 4,
-          "opacity": 1
-        },
-        {
           "y": 5,
           "x": 5,
           "opacity": 1
@@ -1223,6 +1273,26 @@
         {
           "y": 11,
           "x": 0,
+          "opacity": 1
+        },
+        {
+          "y": 6,
+          "x": 1,
+          "opacity": 1
+        },
+        {
+          "y": 6,
+          "x": 2,
+          "opacity": 1
+        },
+        {
+          "y": 6,
+          "x": 4,
+          "opacity": 1
+        },
+        {
+          "y": 6,
+          "x": 3,
           "opacity": 1
         }
       ]
