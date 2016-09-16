@@ -19,6 +19,22 @@ class TypeWriter {
     return Object.keys(Fonts);
   }
 
+  getWidth(copy) {
+    var font = Fonts[this.font],
+        characters = font.characters,
+        width = 0;
+
+    for (let i = 0; i < copy.length; i++) {
+      var character = characters[copy[i]];
+
+      if(character) {
+        width = width + (character.width || font.width);
+      }
+    }
+
+    return width;
+  }
+
   text(copy, callback) {
     var font = Fonts[this.font],
         characters = font.characters;
