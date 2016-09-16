@@ -28,7 +28,7 @@ class TypeWriter {
       var character = characters[copy[i]];
 
       if(character) {
-        width = width + (character.width || font.width);
+        width = width + parseInt(character.width || font.width, 10);
       }
     }
 
