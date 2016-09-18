@@ -41,20 +41,24 @@ class TypeWriter {
 
     if(this.alignment === 'left') {
       for (let i = 0; i < copy.length; i++) {
+
         var character = characters[copy[i]];
 
         if(character) {
           var coordinates = character.coordinates;
 
           if(coordinates) {
+            var width = parseInt((character.width || font.width), 10);
+            
             coordinates.forEach((point) => {
-              callback({
-                y: this.row + point.y,
-                x: this.column + point.x
-              });
+              if(point.x < width) {
+                callback({
+                  y: this.row + point.y,
+                  x: this.column + point.x
+                });
+              }
             });
 
-            var width = character.width || font.width;
             this.column = this.column + width + this.spaceBetweenLetters;
           }
         }
