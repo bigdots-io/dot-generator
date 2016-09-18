@@ -61,7 +61,10 @@ class TypeWriter {
                 }
               } else if(this.wrap === 'word') {
                 if(point.x < width) {
-                  // something...
+                  callback({
+                    y: this.row + point.y,
+                    x: this.column + point.x
+                  });
                 }
               }
             });
