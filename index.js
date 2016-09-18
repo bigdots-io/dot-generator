@@ -11,6 +11,7 @@ class TypeWriter {
     this.font = options.font;
     this.column = options.startingColumn || 0;
     this.row = options.startingRow || 0;
+    this.wrap = options.wrap || 'no-wrap';
     this.spaceBetweenLetters = options.spaceBetweenLetters || 1;
     this.alignment = options.alignment || 'left';
   }
@@ -28,7 +29,7 @@ class TypeWriter {
       var character = characters[copy[i]];
 
       if(character) {
-        width = width + parseInt(character.width || font.width, 10);
+        width = width + parseInt(character.width || font.width, 10) + this.spaceBetweenLetters;
       }
     }
 
@@ -49,13 +50,19 @@ class TypeWriter {
 
           if(coordinates) {
             var width = parseInt((character.width || font.width), 10);
-            
+
             coordinates.forEach((point) => {
-              if(point.x < width) {
-                callback({
-                  y: this.row + point.y,
-                  x: this.column + point.x
-                });
+              if(this.wrap === 'no-wrap') {
+                if(point.x < width) {
+                  callback({
+                    y: this.row + point.y,
+                    x: this.column + point.x
+                  });
+                }
+              } else if(this.wrap === 'word') {
+                if(point.x < width) {
+                  // something...
+                }
               }
             });
 
