@@ -1542,7 +1542,7 @@
       "height": "14"
     },
     ",": {
-      "width": 3,
+      "width": "2",
       "coordinates": [
         {
           "y": 11,
@@ -1554,7 +1554,8 @@
           "x": 0,
           "opacity": 1
         }
-      ]
+      ],
+      "height": "14"
     },
     "?": {
       "coordinates": [

@@ -14,6 +14,7 @@ class TypeWriter {
     this.wrap = options.wrap || 'no-wrap';
     this.spaceBetweenLetters = options.spaceBetweenLetters || 1;
     this.alignment = options.alignment || 'left';
+    this.hex = options.hex || '#FFFFFF';
   }
 
   static availableFonts() {
@@ -38,63 +39,59 @@ class TypeWriter {
 
   text(copy, callback) {
     var font = Fonts[this.font],
-        characters = font.characters;
+        characters = font.characters,
+        coordinatesOut = [];
 
     if(this.alignment === 'left') {
       for (let i = 0; i < copy.length; i++) {
-
-        var character = characters[copy[i]];
+        var character = characters[copy[i]],
+            characterWidth = parseInt(character.width || font.width, 10);
 
         if(character) {
           var coordinates = character.coordinates;
 
           if(coordinates) {
-            var width = parseInt((character.width || font.width), 10);
-
-            coordinates.forEach((point) => {
-              if(this.wrap === 'no-wrap') {
-                if(point.x < width) {
-                  callback({
-                    y: this.row + point.y,
-                    x: this.column + point.x
-                  });
-                }
-              } else if(this.wrap === 'word') {
-                if(point.x < width) {
-                  callback({
-                    y: this.row + point.y,
-                    x: this.column + point.x
-                  });
-                }
-              }
-            });
-
-            this.column = this.column + width + this.spaceBetweenLetters;
+            var results = this.processCharacterCoordinates(coordinates, characterWidth);
+            var coordinatesOut = coordinatesOut.concat(results);
           }
+
+          this.column += (characterWidth + this.spaceBetweenLetters);
         }
       }
     } else {
-      this.column -= characters[copy[copy.length - 1]].width || font.width;
       for (let i = copy.length - 1; i >= 0; i--) {
-        var character = characters[copy[i]];
+        var character = characters[copy[i]],
+            characterWidth = parseInt(character.width || font.width, 10);
 
         if(character) {
+          this.column -= (characterWidth + this.spaceBetweenLetters);
           var coordinates = character.coordinates;
 
           if(coordinates) {
-            coordinates.forEach((point) => {
-              callback({
-                y: this.row + point.y,
-                x: this.column + point.x
-              });
-            });
-
-            var width = character.width || font.width;
-            this.column = this.column - width - this.spaceBetweenLetters;
+            var results = this.processCharacterCoordinates(coordinates, characterWidth);
+            var coordinatesOut = coordinatesOut.concat(results);
           }
         }
       }
     }
+
+    callback(coordinatesOut);
+  }
+
+  processCharacterCoordinates(coordinates, width) {
+    var validCoordinates = [];
+
+    coordinates.forEach((point) => {
+      if(point.x < width) {
+        validCoordinates.push({
+          y: this.row + point.y,
+          x: this.column + point.x,
+          hex: this.hex
+        });
+      }
+    });
+
+    return validCoordinates;
   }
 }
 
