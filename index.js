@@ -1,11 +1,8 @@
 "use strict";
 
-var Fonts = {
-  'system-micro': require('./fonts/system-micro'),
-  'system-medium': require('./fonts/system-medium')
-};
+var Message = require('./lib/message');
 
-class TypeWriter {
+class Typewriter {
   constructor(options) {
     options = options || {};
     this.font = options.font;
@@ -15,84 +12,92 @@ class TypeWriter {
     this.spaceBetweenLetters = options.spaceBetweenLetters || 1;
     this.alignment = options.alignment || 'left';
     this.hex = options.hex || '#FFFFFF';
+
+    this.options = options;
+
+    this.text = "";
   }
 
   static availableFonts() {
     return Object.keys(Fonts);
   }
 
-  getWidth(copy) {
-    var font = Fonts[this.font],
-        characters = font.characters,
-        width = 0;
-
-    for (let i = 0; i < copy.length; i++) {
-      var character = characters[copy[i]];
-
-      if(character) {
-        width = width + parseInt(character.width || font.width, 10) + this.spaceBetweenLetters;
-      }
-    }
-
-    return width;
+  getWidth(text) {
+    return new Message(text, this.font, {
+      spaceBetweenLetters: this.spaceBetweenLetters
+    }).getWidth();
   }
 
-  text(copy, callback) {
-    var font = Fonts[this.font],
-        characters = font.characters,
-        coordinatesOut = [];
+  write(text, callback) {
+    var message = new Message(text, this.font, {
+      spaceBetweenLetters: this.spaceBetweenLetters
+    });
 
-    if(this.alignment === 'left') {
-      for (let i = 0; i < copy.length; i++) {
-        var character = characters[copy[i]],
-            characterWidth = parseInt(character.width || font.width, 10);
+    var coordinates = message.coordinates();
 
-        if(character) {
-          var coordinates = character.coordinates;
+    // this.column = this.getStartingColumn(text);
+    //
+    // for (let i = 0; i < text.length; i++) {
+    //   var character = new Character(text[i], font),
+    //       characterWidth = character.getWidth();
+    //
+    //   if(character.isRenderable() && (text[i] !== this.text[i])) {
+    //     var coordinates = character.getCoordinates();
+    //
+    //     if(coordinates) {
+    //       if(this.text && this.text[i]) {
+    //         var previousCharacter = new Character(this.text[i], font);
+    //
+    //         if(previousCharacter) {
+    //           var previousCoordinates = previousCharacter.getCoordinates();
+    //           coordinates = this.removePreviousCharacterCoordinate(coordinates, previousCoordinates);
+    //         }
+    //       }
+    //
+    //       var results = this.processCharacterCoordinates(coordinates, characterWidth);
+    //       var coordinatesOut = coordinatesOut.concat(results);
+    //     }
+    //   }
+    //
+    //   this.column += (characterWidth + this.spaceBetweenLetters);
+    // }
+    //
+    // this.text = text;
 
-          if(coordinates) {
-            var results = this.processCharacterCoordinates(coordinates, characterWidth);
-            var coordinatesOut = coordinatesOut.concat(results);
-          }
+    var startingColumn = this.options.startingColumn;
 
-          this.column += (characterWidth + this.spaceBetweenLetters);
-        }
-      }
-    } else {
-      for (let i = copy.length - 1; i >= 0; i--) {
-        var character = characters[copy[i]],
-            characterWidth = parseInt(character.width || font.width, 10);
-
-        if(character) {
-          this.column -= (characterWidth + this.spaceBetweenLetters);
-          var coordinates = character.coordinates;
-
-          if(coordinates) {
-            var results = this.processCharacterCoordinates(coordinates, characterWidth);
-            var coordinatesOut = coordinatesOut.concat(results);
-          }
-        }
-      }
+    if(this.alignment === 'right') {
+      startingColumn -= message.getWidth();
     }
 
-    callback(coordinatesOut);
+    var transformedCoordinates = coordinates.map((coordinate) => {
+      return {
+        hex: this.hex,
+        x: coordinate.x + startingColumn,
+        y: coordinate.y
+      };
+    });
+
+    callback(transformedCoordinates);
   }
 
-  processCharacterCoordinates(coordinates, width) {
-    var validCoordinates = [];
+  removePreviousCharacterCoordinate(coordinates, previousCoordinates) {
+    previousCoordinates.forEach(function(previousCoordinate) {
+      var index = coordinates.findIndex(function(coordinate) {
+        return (coordinate.y === previousCoordinate.y && coordinate.x === previousCoordinate.x);
+      });
 
-    coordinates.forEach((point) => {
-      if(point.x < width) {
-        validCoordinates.push({
-          y: this.row + point.y,
-          x: this.column + point.x,
-          hex: this.hex
-        });
+      if(index === -1) {
+        coordinates.push({
+          y: previousCoordinate.y,
+          x: previousCoordinate.x,
+          hex: '#000000'
+        })
       }
     });
 
-    return validCoordinates;
+    return coordinates;
   }
 }
 
-module.exports = TypeWriter;
+module.exports = Typewriter;
