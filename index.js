@@ -22,7 +22,7 @@ class Typewriter {
     }).getWidth();
   }
 
-  write(text, callback) {
+  write(text, callback = function() {}) {
     var message = new Message(text, this.font, {
       spaceBetweenLetters: this.spaceBetweenLetters
     });
