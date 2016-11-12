@@ -16,19 +16,28 @@ describe('Generating dots from text', function() {
       alignment: 'left'
     };
 
-    it('should render left aligned text', function() {
+    it('returns left aligned text', function() {
       textOptions.alignment = 'left';
-      assert.deepEqual(dotStubs.text.leftAligned.HI, dotGenerator.text(textOptions));
+      assert.deepEqual({
+        width: 8,
+        dots: dotStubs.text.leftAligned.HI
+      }, dotGenerator.text(textOptions));
     });
 
-    it('should render right aligned text', function() {
+    it('returns right aligned text', function() {
       textOptions.alignment = 'right';
-      assert.deepEqual(dotStubs.text.rightAligned.HI, dotGenerator.text(textOptions));
+      assert.deepEqual({
+        width: 8,
+        dots: dotStubs.text.rightAligned.HI
+      }, dotGenerator.text(textOptions));
     });
 
-    it('should render center aligned text', function() {
+    it('returns center aligned text', function() {
       textOptions.alignment = 'center';
-      assert.deepEqual(dotStubs.text.centerAligned.HI, dotGenerator.text(textOptions));
+      assert.deepEqual({
+        width: 8,
+        dots: dotStubs.text.centerAligned.HI
+      }, dotGenerator.text(textOptions));
     });
   });
 });
