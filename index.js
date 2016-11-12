@@ -1,53 +1,63 @@
 "use strict";
 
-var Message = require('./lib/message');
+var Textbox = require('./lib/textbox');
+var getPixels = require('get-pixels');
 
-class Typewriter {
-  constructor(options = {}) {
-    this.font = options.font || 'system-6';
-    this.startingColumn = options.startingColumn || 0;
-    this.startingRow = options.startingRow || 0;
-    this.spaceBetweenLetters = options.spaceBetweenLetters || 1;
-    this.alignment = options.alignment || 'left';
-    this.hex = options.hex || '#FFFFFF';
-
-    this.options = options;
-
-    this.text = "";
+class DotGenerator {
+  constructor() {
+    // Nothing...
   }
 
-  getWidth(text) {
-    return new Message(text, this.font, {
-      spaceBetweenLetters: this.spaceBetweenLetters
-    }).getWidth();
-  }
-
-  write(text, callback = function() {}) {
-    var message = new Message(text, this.font, {
-      spaceBetweenLetters: this.spaceBetweenLetters
+  text(options, callbacks) {
+    var textbox = new Textbox({
+      font: options.font,
+      hex: options.color,
+      alignment: options.alignment,
+      width: options.width,
+      height: options.height,
     });
 
-    var startingColumn = this.startingColumn;
+    textbox.write(options.text, (dots) -> {
+      callbacks.onSuccess({ dots: dots });
+    });
+  }
 
-    if(this.alignment === 'right') {
-      startingColumn -= message.getWidth();
+  image(options, callbacks) {
+    if(options.url) {
+      getPixels(url, (err, pixels) => {
+        if(err) {
+          callback(err);
+        }
+
+        var imageWidth = pixels.shape[0],
+            imageHeight = pixels.shape[1];
+
+        var dots = [];
+
+        for(let x = 0; x < imageWidth; x++) {
+          for(let y = 0; y < imageHeight; y++) {
+            var r = pixels.get(x, y, 0),
+                g = pixels.get(x, y, 1),
+                b = pixels.get(x, y, 2),
+                a = pixels.get(x, y, 3);
+
+            var hex = rgb2hex(`rgba(${r}, ${g}, ${b}, ${a})`)
+
+            dots.push({ x: x, y: y, hex: hex });
+          }
+        }
+
+        callbacks.onSuccess({ dots: dots });
+      });
+    } else {
+      console.log('Unsupported image option!');
     }
-
-    var coordinates = message.renderCoordinates({
-      previousText: this.text,
-      columnOffset: startingColumn,
-      rowOffset: this.startingRow
-    });
-
-    var transformedCoordinates = coordinates.map((coordinate) => {
-      coordinate.hex = coordinate.hex || this.hex;
-      return coordinate;
-    });
-
-    this.text = text;
-
-    callback(transformedCoordinates);
   }
 }
 
-module.exports = Typewriter;
+function rgb2hex(rgb) {
+  rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+  return (rgb && rgb.length === 4) ? "#" + ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) + ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) + ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
+}
+
+module.exports = DotGenerator;
