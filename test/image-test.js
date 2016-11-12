@@ -1,6 +1,6 @@
 var assert = require('assert');
 var DotGenerator = require('../index');
-var dotStubs = require('./dot-stubs');
+var dotFixtures = require('./dot-fixtures');
 
 describe('Generating dots from image', function() {
 
@@ -10,7 +10,7 @@ describe('Generating dots from image', function() {
     it('should render', function(done) {
       dotGenerator.image('./test/green-ball.png', {
         onSuccess: (dots) => {
-          assert.deepEqual(dotStubs.image.greenBall, dots)
+          assert.deepEqual(dotFixtures.image.greenBall, dots)
           done();
         }
       });
