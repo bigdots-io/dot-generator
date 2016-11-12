@@ -15,6 +15,8 @@ class DotGenerator {
       alignment: options.alignment,
       width: options.width,
       height: options.height,
+      startingColumn: options.startingColumn,
+      startingRow: options.startingRow
     });
 
     return textbox.write(options.text);
