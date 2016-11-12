@@ -8,7 +8,7 @@
     "test": "./node_modules/mocha/bin/mocha"
   },
   "dependencies": {
-    "fonts": "bigdots-io/fonts.git#v0.3.2",
+    "fonts": "bigdots-io/fonts.git#v0.3.4",
     "get-pixels": "^3.3.0"
   },
   "author": "",
