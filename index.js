@@ -8,7 +8,7 @@ class DotGenerator {
     // Nothing...
   }
 
-  text(options, callbacks) {
+  text(options) {
     var textbox = new Textbox({
       font: options.font,
       hex: options.color,
@@ -17,41 +17,36 @@ class DotGenerator {
       height: options.height,
     });
 
-    textbox.write(options.text, (dots) -> {
-      callbacks.onSuccess({ dots: dots });
-    });
+    return textbox.write(options.text);
   }
 
-  image(options, callbacks) {
-    if(options.url) {
-      getPixels(url, (err, pixels) => {
-        if(err) {
-          callback(err);
+  image(url, callbacks) {
+    getPixels(url, (err, pixels) => {
+      if(err) {
+        console.log(err);
+        callbacks.onError(err);
+      }
+
+      var imageWidth = pixels.shape[0],
+          imageHeight = pixels.shape[1];
+
+      var dots = [];
+
+      for(let x = 0; x < imageWidth; x++) {
+        for(let y = 0; y < imageHeight; y++) {
+          var r = pixels.get(x, y, 0),
+              g = pixels.get(x, y, 1),
+              b = pixels.get(x, y, 2),
+              a = pixels.get(x, y, 3);
+
+          var hex = rgb2hex(`rgba(${r}, ${g}, ${b}, ${a})`)
+
+          dots.push({ x: x, y: y, hex: hex });
         }
+      }
 
-        var imageWidth = pixels.shape[0],
-            imageHeight = pixels.shape[1];
-
-        var dots = [];
-
-        for(let x = 0; x < imageWidth; x++) {
-          for(let y = 0; y < imageHeight; y++) {
-            var r = pixels.get(x, y, 0),
-                g = pixels.get(x, y, 1),
-                b = pixels.get(x, y, 2),
-                a = pixels.get(x, y, 3);
-
-            var hex = rgb2hex(`rgba(${r}, ${g}, ${b}, ${a})`)
-
-            dots.push({ x: x, y: y, hex: hex });
-          }
-        }
-
-        callbacks.onSuccess({ dots: dots });
-      });
-    } else {
-      console.log('Unsupported image option!');
-    }
+      callbacks.onSuccess(dots);
+    });
   }
 }
 
