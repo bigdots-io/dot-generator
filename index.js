@@ -25,29 +25,36 @@ class DotGenerator {
   image(url, callbacks) {
     getPixels(url, (err, pixels) => {
       if(err) {
-        console.log(err);
         callbacks.onError(err);
       }
 
-      var imageWidth = pixels.shape[0],
-          imageHeight = pixels.shape[1];
+      var frames = pixels.shape[0],
+          imageWidth = pixels.shape[1],
+          imageHeight = pixels.shape[2];
 
-      var dots = [];
+      var out = [];
 
-      for(let x = 0; x < imageWidth; x++) {
-        for(let y = 0; y < imageHeight; y++) {
-          var r = pixels.get(x, y, 0),
-              g = pixels.get(x, y, 1),
-              b = pixels.get(x, y, 2),
-              a = pixels.get(x, y, 3);
+      for(let f = 0; f < frames; f++) {
+        var frame = [];
+        for(let x = 0; x < imageWidth; x++) {
+          for(let y = 0; y < imageHeight; y++) {
+            var r = pixels.get(f, x, y, 0),
+                g = pixels.get(f, x, y, 1),
+                b = pixels.get(f, x, y, 2),
+                a = pixels.get(f, x, y, 3);
 
-          var hex = rgb2hex(`rgba(${r}, ${g}, ${b}, ${a})`)
+            var hex = rgb2hex(`rgba(${r}, ${g}, ${b}, ${a})`)
 
-          dots.push({ x: x, y: y, hex: hex });
+            frame.push({ x: x, y: y, hex: hex });
+          }
         }
+
+        out.push(frame);
       }
 
-      callbacks.onSuccess(dots);
+      callbacks.onSuccess({
+        data: out
+      });
     });
   }
 }
