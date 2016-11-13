@@ -24,39 +24,62 @@ class DotGenerator {
 
   image(url, callbacks) {
     getPixels(url, (err, pixels) => {
+      var animated = false,
+          out = [];
+
       if(err) {
         callbacks.onError(err);
       }
 
-      var frames = pixels.shape[0],
-          imageWidth = pixels.shape[1],
-          imageHeight = pixels.shape[2];
+      if(pixels.shape.length === 3) {
+        var imageWidth = pixels.shape[0],
+            imageHeight = pixels.shape[1];
 
-      var out = [];
-
-      for(let f = 0; f < frames; f++) {
-        var frame = [];
         for(let x = 0; x < imageWidth; x++) {
           for(let y = 0; y < imageHeight; y++) {
-            var r = pixels.get(f, x, y, 0),
-                g = pixels.get(f, x, y, 1),
-                b = pixels.get(f, x, y, 2),
-                a = pixels.get(f, x, y, 3);
+            var r = pixels.get(x, y, 0),
+                g = pixels.get(x, y, 1),
+                b = pixels.get(x, y, 2),
+                a = pixels.get(x, y, 3);
 
-            var hex = rgb2hex(`rgba(${r}, ${g}, ${b}, ${a})`)
-
-            frame.push({ x: x, y: y, hex: hex });
+            out.push({ x: x, y: y, hex: getHex(r, g, b, a) });
           }
         }
+      } else {
+        animated = true;
 
-        out.push(frame);
+        var frames = pixels.shape[0],
+            imageWidth = pixels.shape[1],
+            imageHeight = pixels.shape[2];
+
+        for(let f = 0; f < frames; f++) {
+          var frame = [];
+          
+          for(let x = 0; x < imageWidth; x++) {
+            for(let y = 0; y < imageHeight; y++) {
+              var r = pixels.get(f, x, y, 0),
+                  g = pixels.get(f, x, y, 1),
+                  b = pixels.get(f, x, y, 2),
+                  a = pixels.get(f, x, y, 3);
+
+              frame.push({ x: x, y: y, hex: getHex(r, g, b, a) });
+            }
+          }
+
+          out.push(frame);
+        }
       }
 
       callbacks.onSuccess({
-        data: out
+        data: out,
+        animated: animated
       });
     });
   }
+}
+
+function getHex(r, g, b, a) {
+  return rgb2hex(`rgba(${r}, ${g}, ${b}, ${a})`);
 }
 
 function rgb2hex(rgb) {
