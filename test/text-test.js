@@ -1,6 +1,5 @@
 var assert = require('assert');
 var DotGenerator = require('../index');
-var dotFixtures = require('./dot-fixtures');
 
 describe('Generating dots from text', function() {
 
@@ -18,26 +17,17 @@ describe('Generating dots from text', function() {
 
     it('returns left aligned text', function() {
       textOptions.alignment = 'left';
-      assert.deepEqual({
-        width: 8,
-        dots: dotFixtures.text.leftAligned.HI
-      }, dotGenerator.text(textOptions));
+      assert.deepEqual(require('./fixtures/left-aligned-text'), dotGenerator.text(textOptions));
     });
 
     it('returns right aligned text', function() {
       textOptions.alignment = 'right';
-      assert.deepEqual({
-        width: 8,
-        dots: dotFixtures.text.rightAligned.HI
-      }, dotGenerator.text(textOptions));
+      assert.deepEqual(require('./fixtures/right-aligned-text'), dotGenerator.text(textOptions));
     });
 
     it('returns center aligned text', function() {
       textOptions.alignment = 'center';
-      assert.deepEqual({
-        width: 8,
-        dots: dotFixtures.text.centerAligned.HI
-      }, dotGenerator.text(textOptions));
+      assert.deepEqual(require('./fixtures/center-aligned-text'), dotGenerator.text(textOptions));
     });
   });
 
@@ -53,19 +43,34 @@ describe('Generating dots from text', function() {
 
     it('defaults to coordinate 0,0', function() {
       textOptions.alignment = 'left';
-      assert.deepEqual({
-        width: 8,
-        dots: dotFixtures.text.leftAligned.HI
-      }, dotGenerator.text(textOptions));
+      assert.deepEqual(require('./fixtures/left-aligned-text'), dotGenerator.text(textOptions));
     });
 
     it('returns offset text to the starting row and column', function() {
       textOptions.startingRow = 3;
       textOptions.startingColumn = 5;
-      assert.deepEqual({
-        width: 8,
-        dots: dotFixtures.text.offsetText.HI
-      }, dotGenerator.text(textOptions));
+      assert.deepEqual(require('./fixtures/offset-text'), dotGenerator.text(textOptions));
     });
   });
+
+  // describe('text wrapping', function() {
+  //   var textOptions = {
+  //     text: 'HI ROY',
+  //     width: 8,
+  //     height: 6,
+  //     font: 'system-6',
+  //     color: '#FFFFFF',
+  //     alignment: 'left',
+  //   };
+  //
+  //   describe('when set to wrap', function() {
+  //     beforeEach(function() {
+  //       textOptions.wrap = 'wrap';
+  //     });
+  //
+  //     it('returns wrapped text', function() {
+  //       assert.deepEqual(require('./fixtures/wrapped-text'), dotGenerator.text(textOptions));
+  //     });
+  //   });
+  // });
 });
