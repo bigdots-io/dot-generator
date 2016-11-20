@@ -1,0 +1,131 @@
+{
+  "width": 100,
+  "height": 6,
+  "dots": [
+    {
+      "x": 46,
+      "y": 0,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 46,
+      "y": 1,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 46,
+      "y": 2,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 46,
+      "y": 3,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 46,
+      "y": 4,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 46,
+      "y": 5,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 47,
+      "y": 3,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 48,
+      "y": 3,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 49,
+      "y": 3,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 49,
+      "y": 0,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 49,
+      "y": 1,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 49,
+      "y": 2,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 49,
+      "y": 3,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 49,
+      "y": 4,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 49,
+      "y": 5,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 51,
+      "y": 0,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 53,
+      "y": 0,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 52,
+      "y": 0,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 52,
+      "y": 2,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 52,
+      "y": 3,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 52,
+      "y": 4,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 52,
+      "y": 1,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 51,
+      "y": 5,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 52,
+      "y": 5,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 53,
+      "y": 5,
+      "hex": "#FFFFFF"
+    }
+  ]
+}
