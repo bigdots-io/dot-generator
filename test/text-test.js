@@ -53,24 +53,24 @@ describe('Generating dots from text', function() {
     });
   });
 
-  // describe('text wrapping', function() {
-  //   var textOptions = {
-  //     text: 'HI ROY',
-  //     width: 8,
-  //     height: 6,
-  //     font: 'system-6',
-  //     color: '#FFFFFF',
-  //     alignment: 'left',
-  //   };
-  //
-  //   describe('when set to wrap', function() {
-  //     beforeEach(function() {
-  //       textOptions.wrap = 'wrap';
-  //     });
-  //
-  //     it('returns wrapped text', function() {
-  //       assert.deepEqual(require('./fixtures/wrapped-text'), dotGenerator.text(textOptions));
-  //     });
-  //   });
-  // });
+  describe('text wrapping', function() {
+    var textOptions = {
+      text: 'HI ROY',
+      width: 13,
+      height: 6,
+      font: 'system-6',
+      color: '#FFFFFF'
+    };
+
+    describe('when set to wrap and left align', function() {
+      beforeEach(function() {
+        textOptions.wrap = 'wrap';
+        textOptions.alignment = 'left';
+      });
+
+      it('returns wrapped text left aligned', function() {
+        assert.deepEqual(require('./fixtures/wrapped-left-aligned-text'), dotGenerator.text(textOptions));
+      });
+    });
+  });
 });
