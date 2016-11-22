@@ -56,7 +56,7 @@ describe('Generating dots from text', function() {
   describe('text wrapping', function() {
     var textOptions = {
       text: 'HI ROY',
-      width: 13,
+      width: 21,
       height: 6,
       font: 'system-6',
       color: '#FFFFFF'
@@ -70,6 +70,28 @@ describe('Generating dots from text', function() {
 
       it('returns wrapped text left aligned', function() {
         assert.deepEqual(require('./fixtures/wrapped-left-aligned-text'), dotGenerator.text(textOptions));
+      });
+    });
+
+    describe('when set to wrap and right align', function() {
+      beforeEach(function() {
+        textOptions.wrap = 'wrap';
+        textOptions.alignment = 'right';
+      });
+
+      it('returns wrapped text right aligned', function() {
+        assert.deepEqual(require('./fixtures/wrapped-right-aligned-text'), dotGenerator.text(textOptions));
+      });
+    });
+
+    describe('when set to wrap and center align', function() {
+      beforeEach(function() {
+        textOptions.wrap = 'wrap';
+        textOptions.alignment = 'center';
+      });
+
+      it('returns wrapped text center aligned', function() {
+        assert.deepEqual(require('./fixtures/wrapped-center-aligned-text'), dotGenerator.text(textOptions));
       });
     });
   });

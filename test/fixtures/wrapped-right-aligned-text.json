@@ -3,218 +3,153 @@
   "height": 14,
   "dots": [
     {
-      "x": 0,
+      "x": 13,
       "y": 0,
       "hex": "#FFFFFF"
     },
     {
-      "x": 0,
+      "x": 13,
       "y": 1,
       "hex": "#FFFFFF"
     },
     {
-      "x": 0,
+      "x": 13,
       "y": 2,
       "hex": "#FFFFFF"
     },
     {
-      "x": 0,
+      "x": 13,
       "y": 3,
       "hex": "#FFFFFF"
     },
     {
-      "x": 0,
+      "x": 13,
       "y": 4,
       "hex": "#FFFFFF"
     },
     {
-      "x": 0,
+      "x": 13,
       "y": 5,
       "hex": "#FFFFFF"
     },
     {
-      "x": 1,
+      "x": 14,
       "y": 3,
       "hex": "#FFFFFF"
     },
     {
-      "x": 2,
+      "x": 15,
       "y": 3,
       "hex": "#FFFFFF"
     },
     {
-      "x": 3,
+      "x": 16,
       "y": 3,
       "hex": "#FFFFFF"
     },
     {
-      "x": 3,
+      "x": 16,
       "y": 0,
       "hex": "#FFFFFF"
     },
     {
-      "x": 3,
+      "x": 16,
       "y": 1,
       "hex": "#FFFFFF"
     },
     {
-      "x": 3,
+      "x": 16,
       "y": 2,
       "hex": "#FFFFFF"
     },
     {
-      "x": 3,
+      "x": 16,
       "y": 3,
       "hex": "#FFFFFF"
     },
     {
-      "x": 3,
+      "x": 16,
       "y": 4,
       "hex": "#FFFFFF"
     },
     {
-      "x": 3,
+      "x": 16,
       "y": 5,
       "hex": "#FFFFFF"
     },
     {
-      "x": 5,
+      "x": 18,
       "y": 0,
       "hex": "#FFFFFF"
     },
     {
-      "x": 7,
+      "x": 20,
       "y": 0,
       "hex": "#FFFFFF"
     },
     {
-      "x": 6,
+      "x": 19,
       "y": 0,
       "hex": "#FFFFFF"
     },
     {
-      "x": 6,
+      "x": 19,
       "y": 2,
       "hex": "#FFFFFF"
     },
     {
-      "x": 6,
+      "x": 19,
       "y": 3,
       "hex": "#FFFFFF"
     },
     {
-      "x": 6,
+      "x": 19,
       "y": 4,
       "hex": "#FFFFFF"
     },
     {
-      "x": 6,
+      "x": 19,
       "y": 1,
       "hex": "#FFFFFF"
     },
     {
-      "x": 5,
+      "x": 18,
+      "y": 5,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 19,
+      "y": 5,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 20,
       "y": 5,
       "hex": "#FFFFFF"
     },
     {
       "x": 6,
-      "y": 5,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 7,
-      "y": 5,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 0,
-      "y": 12,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 0,
-      "y": 11,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 0,
-      "y": 10,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 0,
-      "y": 8,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 0,
-      "y": 9,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 1,
-      "y": 7,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 0,
-      "y": 7,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 2,
-      "y": 7,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 2,
-      "y": 10,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 3,
-      "y": 11,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 3,
-      "y": 8,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 3,
-      "y": 12,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 3,
-      "y": 9,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 1,
-      "y": 10,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 5,
       "y": 12,
       "hex": "#FFFFFF"
     },
     {
       "x": 6,
-      "y": 12,
+      "y": 11,
       "hex": "#FFFFFF"
     },
     {
-      "x": 7,
-      "y": 12,
+      "x": 6,
+      "y": 10,
       "hex": "#FFFFFF"
     },
     {
-      "x": 8,
-      "y": 12,
+      "x": 6,
+      "y": 8,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 6,
+      "y": 9,
       "hex": "#FFFFFF"
     },
     {
@@ -228,48 +163,43 @@
       "hex": "#FFFFFF"
     },
     {
-      "x": 5,
+      "x": 8,
       "y": 7,
       "hex": "#FFFFFF"
     },
     {
-      "x": 5,
-      "y": 8,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 5,
-      "y": 9,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 5,
-      "y": 10,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 5,
-      "y": 11,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 8,
-      "y": 8,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 8,
-      "y": 9,
-      "hex": "#FFFFFF"
-    },
-    {
       "x": 8,
       "y": 10,
       "hex": "#FFFFFF"
     },
     {
-      "x": 8,
+      "x": 9,
       "y": 11,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 9,
+      "y": 8,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 9,
+      "y": 12,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 9,
+      "y": 9,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 7,
+      "y": 10,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 11,
+      "y": 12,
       "hex": "#FFFFFF"
     },
     {
@@ -278,58 +208,38 @@
       "hex": "#FFFFFF"
     },
     {
+      "x": 13,
+      "y": 12,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 14,
+      "y": 12,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 13,
+      "y": 7,
+      "hex": "#FFFFFF"
+    },
+    {
       "x": 12,
-      "y": 11,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 10,
       "y": 7,
       "hex": "#FFFFFF"
     },
     {
-      "x": 10,
+      "x": 11,
       "y": 7,
       "hex": "#FFFFFF"
     },
     {
-      "x": 10,
-      "y": 7,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 10,
-      "y": 7,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 10,
-      "y": 7,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 10,
+      "x": 11,
       "y": 8,
       "hex": "#FFFFFF"
     },
     {
-      "x": 10,
-      "y": 8,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 10,
-      "y": 8,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 10,
-      "y": 8,
-      "hex": "#FFFFFF"
-    },
-    {
-      "x": 10,
-      "y": 8,
+      "x": 11,
+      "y": 9,
       "hex": "#FFFFFF"
     },
     {
@@ -338,87 +248,177 @@
       "hex": "#FFFFFF"
     },
     {
-      "x": 13,
+      "x": 11,
+      "y": 11,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 14,
+      "y": 8,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 14,
+      "y": 9,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 14,
       "y": 10,
       "hex": "#FFFFFF"
     },
     {
       "x": 14,
+      "y": 11,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 18,
+      "y": 12,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 18,
+      "y": 11,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 16,
+      "y": 7,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 16,
+      "y": 7,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 16,
+      "y": 7,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 16,
+      "y": 7,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 16,
+      "y": 7,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 16,
+      "y": 8,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 16,
+      "y": 8,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 16,
+      "y": 8,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 16,
+      "y": 8,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 16,
+      "y": 8,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 17,
+      "y": 10,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 19,
+      "y": 10,
+      "hex": "#FFFFFF"
+    },
+    {
+      "x": 20,
       "y": 9,
       "hex": "#FFFFFF"
     },
     {
-      "x": 14,
+      "x": 20,
       "y": 9,
       "hex": "#FFFFFF"
     },
     {
-      "x": 14,
+      "x": 20,
       "y": 9,
       "hex": "#FFFFFF"
     },
     {
-      "x": 14,
+      "x": 20,
       "y": 9,
       "hex": "#FFFFFF"
     },
     {
-      "x": 14,
+      "x": 20,
       "y": 9,
       "hex": "#FFFFFF"
     },
     {
-      "x": 14,
+      "x": 20,
       "y": 8,
       "hex": "#FFFFFF"
     },
     {
-      "x": 14,
+      "x": 20,
       "y": 8,
       "hex": "#FFFFFF"
     },
     {
-      "x": 14,
+      "x": 20,
       "y": 8,
       "hex": "#FFFFFF"
     },
     {
-      "x": 14,
+      "x": 20,
       "y": 8,
       "hex": "#FFFFFF"
     },
     {
-      "x": 14,
+      "x": 20,
       "y": 8,
       "hex": "#FFFFFF"
     },
     {
-      "x": 14,
+      "x": 20,
       "y": 8,
       "hex": "#FFFFFF"
     },
     {
-      "x": 14,
+      "x": 20,
       "y": 8,
       "hex": "#FFFFFF"
     },
     {
-      "x": 14,
+      "x": 20,
       "y": 8,
       "hex": "#FFFFFF"
     },
     {
-      "x": 14,
+      "x": 20,
       "y": 8,
       "hex": "#FFFFFF"
     },
     {
-      "x": 10,
+      "x": 16,
       "y": 9,
       "hex": "#FFFFFF"
     },
     {
-      "x": 14,
+      "x": 20,
       "y": 7,
       "hex": "#FFFFFF"
     }
