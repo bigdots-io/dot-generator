@@ -62,7 +62,7 @@ describe('Generating dots from text', function() {
       color: '#FFFFFF'
     };
 
-    describe('when set to wrap and left align', function() {
+    describe('when set left align', function() {
       beforeEach(function() {
         textOptions.wrap = 'wrap';
         textOptions.alignment = 'left';
@@ -73,7 +73,7 @@ describe('Generating dots from text', function() {
       });
     });
 
-    describe('when set to wrap and right align', function() {
+    describe('when set to right align', function() {
       beforeEach(function() {
         textOptions.wrap = 'wrap';
         textOptions.alignment = 'right';
@@ -84,7 +84,7 @@ describe('Generating dots from text', function() {
       });
     });
 
-    describe('when set to wrap and center align', function() {
+    describe('when set to center align', function() {
       beforeEach(function() {
         textOptions.wrap = 'wrap';
         textOptions.alignment = 'center';
@@ -92,6 +92,23 @@ describe('Generating dots from text', function() {
 
       it('returns wrapped text center aligned', function() {
         assert.deepEqual(require('./fixtures/wrapped-center-aligned-text'), dotGenerator.text(textOptions));
+      });
+    });
+
+    describe('when a word is too long for the textbox width', function() {
+      beforeEach(function() {
+        textOptions.wrap = 'wrap';
+        textOptions.alignment = 'left';
+      });
+
+      it('returns a hypenated word across two lines', function() {
+        textOptions.text = 'ROUGH';
+        assert.deepEqual(require('./fixtures/hypenated-text'), dotGenerator.text(textOptions));
+      });
+
+      it('returns a hypenated word across as many lines as needed', function() {
+        textOptions.text = 'DISHWASHER';
+        assert.deepEqual(require('./fixtures/hypenated-multi-line-text'), dotGenerator.text(textOptions));
       });
     });
   });
