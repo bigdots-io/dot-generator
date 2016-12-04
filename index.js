@@ -16,7 +16,9 @@ class DotGenerator {
       width: options.width,
       height: options.height,
       startingColumn: options.startingColumn,
-      startingRow: options.startingRow
+      startingRow: options.startingRow,
+      spaceBetweenLetters: options.spaceBetweenLetters,
+      spaceBetweenLines: options.spaceBetweenLines
     }).write(options.text);
   }
 
