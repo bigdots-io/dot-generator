@@ -5,6 +5,21 @@ describe('Generating dots from text', function() {
 
   var dotGenerator = new DotGenerator();
 
+  describe('text formating', function() {
+    var textOptions = {
+      text: 'HI ROY',
+      width: 100,
+      height: 6,
+      font: 'system-6',
+      color: '#FFFFFF',
+      alignment: 'left'
+    };
+
+    it('renders a space between words when appropiate', function() {
+      assert.deepEqual(require('./fixtures/spaces-between-words-text'), dotGenerator.text(textOptions));
+    });
+  });
+
   describe('text alignment', function() {
     var textOptions = {
       text: 'HI',
