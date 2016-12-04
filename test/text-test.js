@@ -18,6 +18,11 @@ describe('Generating dots from text', function() {
     it('renders a space between words when appropiate', function() {
       assert.deepEqual(require('./fixtures/spaces-between-words-text'), dotGenerator.text(textOptions));
     });
+
+    it('renders text with letter spacing size', function() {
+      textOptions.spaceBetweenLetters = 2;
+      assert.deepEqual(require('./fixtures/spaces-between-letters-text'), dotGenerator.text(textOptions));
+    });
   });
 
   describe('text alignment', function() {
