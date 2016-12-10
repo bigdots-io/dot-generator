@@ -15,8 +15,6 @@ describe('Generating dots from text', function() {
   describe('text formatting', function() {
     var textOptions = {
       text: 'HI ROY',
-      width: 50,
-      height: 7,
       font: 'system-6',
       color: '#FFFFFF',
       alignment: 'left'
@@ -49,11 +47,48 @@ describe('Generating dots from text', function() {
     });
   });
 
+  describe('setting fixed dimensions', function() {
+    var textOptions = {
+      text: 'HI',
+      font: 'system-6',
+      color: '#FFFFFF',
+      alignment: 'left'
+    };
+
+    it('honors the height and cuts off text if necessary', function() {
+      textOptions.height = 4;
+
+      var result = dotGenerator.text(textOptions),
+          fixtureName = 'fixed-height-text';
+
+      if(refreshFixtures) {
+        updateFixture(fixtureName, result);
+        assert.equal(true, false)
+      } else {
+        assert.deepEqual(require(`./fixtures/text/${fixtureName}`), result);
+      }
+    });
+
+    // TODO: Fix!
+    // it('honors the width and cuts off text if necessary', function() {
+    //   textOptions.width = 6;
+    //
+    //   var result = dotGenerator.text(textOptions),
+    //       fixtureName = 'fixed-width-text';
+    //
+    //   if(refreshFixtures) {
+    //     updateFixture(fixtureName, result);
+    //     assert.equal(true, false)
+    //   } else {
+    //     assert.deepEqual(require(`./fixtures/text/${fixtureName}`), result);
+    //   }
+    // });
+  });
+
   describe('text alignment', function() {
     var textOptions = {
       text: 'HI',
       width: 30,
-      height: 7,
       font: 'system-6',
       color: '#FFFFFF',
       alignment: 'left'
@@ -106,7 +141,6 @@ describe('Generating dots from text', function() {
     var textOptions = {
       text: 'HI',
       width: 20,
-      height: 6,
       font: 'system-6',
       color: '#FFFFFF',
       alignment: 'left'
@@ -146,7 +180,6 @@ describe('Generating dots from text', function() {
     var textOptions = {
       text: 'HI ROY',
       width: 21,
-      height: 6,
       font: 'system-6',
       color: '#FFFFFF'
     };
