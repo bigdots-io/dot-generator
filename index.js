@@ -9,11 +9,6 @@ class DotGenerator {
   }
 
   text(options) {
-    var out = this.color('#000000', {
-      width: options.width,
-      height: options.height
-    });
-
     var result = new Textbox({
       font: options.font,
       hex: options.color,
@@ -25,6 +20,11 @@ class DotGenerator {
       spaceBetweenLetters: options.spaceBetweenLetters,
       spaceBetweenLines: options.spaceBetweenLines
     }).write(options.text);
+
+    var out = this.color('#000000', {
+      width: result.width,
+      height: result.height
+    });
 
     result.dots.forEach(function(dot) {
       var index = out.dots.findIndex(function(item) {

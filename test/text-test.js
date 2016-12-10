@@ -16,7 +16,6 @@ describe('Generating dots from text', function() {
     var textOptions = {
       text: 'HI ROY',
       width: 50,
-      height: 7,
       font: 'system-6',
       color: '#FFFFFF',
       alignment: 'left'
@@ -53,7 +52,6 @@ describe('Generating dots from text', function() {
     var textOptions = {
       text: 'HI',
       width: 30,
-      height: 7,
       font: 'system-6',
       color: '#FFFFFF',
       alignment: 'left'
@@ -106,7 +104,6 @@ describe('Generating dots from text', function() {
     var textOptions = {
       text: 'HI',
       width: 20,
-      height: 6,
       font: 'system-6',
       color: '#FFFFFF',
       alignment: 'left'
@@ -146,7 +143,6 @@ describe('Generating dots from text', function() {
     var textOptions = {
       text: 'HI ROY',
       width: 21,
-      height: 6,
       font: 'system-6',
       color: '#FFFFFF'
     };

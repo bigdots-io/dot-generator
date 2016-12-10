@@ -105,7 +105,7 @@
       $(`select option[value="${fixture}"]`).attr('selected','selected');
 
       $.get(`/fixtures/text/${fixture}.json`, function(data) {
-
+        
         $('.characters').append(matrix.render(500, {
           width: data.width,
           height: data.height}
