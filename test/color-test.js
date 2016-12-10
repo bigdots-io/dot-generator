@@ -10,6 +10,6 @@ describe('Setting color', function() {
       width: 5,
       height: 5
     });
-    assert.deepEqual(require('./fixtures/solid-color'), result);
+    assert.deepEqual(require('./fixtures/color/solid-color'), result);
   });
 });

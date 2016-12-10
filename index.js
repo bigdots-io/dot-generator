@@ -9,7 +9,12 @@ class DotGenerator {
   }
 
   text(options) {
-    return new Textbox({
+    var out = this.color('#000000', {
+      width: options.width,
+      height: options.height
+    });
+
+    var result = new Textbox({
       font: options.font,
       hex: options.color,
       alignment: options.alignment,
@@ -20,6 +25,20 @@ class DotGenerator {
       spaceBetweenLetters: options.spaceBetweenLetters,
       spaceBetweenLines: options.spaceBetweenLines
     }).write(options.text);
+
+    result.dots.forEach(function(dot) {
+      var index = out.dots.findIndex(function(item) {
+        return item.y === dot.y && item.x === dot.x;
+      });
+
+      if(index) {
+        out.dots[index].hex = dot.hex
+      } else {
+        out.dots.push(dot);
+      }
+    });
+
+    return out;
   }
 
   image(url, callbacks) {

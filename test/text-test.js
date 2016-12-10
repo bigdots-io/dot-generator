@@ -1,35 +1,59 @@
 var assert = require('assert');
 var DotGenerator = require('../index');
+var fs = require('fs');
+
+function updateFixture(fileName, result) {
+  fs.writeFile(`./test/fixtures/text/${fileName}.json`, JSON.stringify(result, null, 2), 'utf-8');
+}
+
+var refreshFixtures = false;
 
 describe('Generating dots from text', function() {
 
   var dotGenerator = new DotGenerator();
 
-  describe('text formating', function() {
+  describe('text formatting', function() {
     var textOptions = {
       text: 'HI ROY',
-      width: 100,
-      height: 6,
+      width: 50,
+      height: 7,
       font: 'system-6',
       color: '#FFFFFF',
       alignment: 'left'
     };
 
     it('renders a space between words when appropiate', function() {
-      assert.deepEqual(require('./fixtures/spaces-between-words-text'), dotGenerator.text(textOptions));
+      var result = dotGenerator.text(textOptions),
+          fixtureName = 'spaces-between-words-text';
+
+      if(refreshFixtures) {
+        updateFixture(fixtureName, result);
+        assert.equal(true, false)
+      } else {
+        assert.deepEqual(require(`./fixtures/text/${fixtureName}`), result);
+      }
     });
 
     it('renders text with letter spacing size', function() {
       textOptions.spaceBetweenLetters = 2;
-      assert.deepEqual(require('./fixtures/spaces-between-letters-text'), dotGenerator.text(textOptions));
+
+      var result = dotGenerator.text(textOptions),
+          fixtureName = 'spaces-between-letters-text';
+
+      if(refreshFixtures) {
+        updateFixture(fixtureName, result);
+        assert.equal(true, false)
+      } else {
+        assert.deepEqual(require(`./fixtures/text/${fixtureName}`), result);
+      }
     });
   });
 
   describe('text alignment', function() {
     var textOptions = {
       text: 'HI',
-      width: 100,
-      height: 6,
+      width: 30,
+      height: 7,
       font: 'system-6',
       color: '#FFFFFF',
       alignment: 'left'
@@ -37,24 +61,51 @@ describe('Generating dots from text', function() {
 
     it('returns left aligned text', function() {
       textOptions.alignment = 'left';
-      assert.deepEqual(require('./fixtures/left-aligned-text'), dotGenerator.text(textOptions));
+
+      var result = dotGenerator.text(textOptions),
+          fixtureName = 'left-aligned-text';
+
+      if(refreshFixtures) {
+        updateFixture(fixtureName, result);
+        assert.equal(true, false)
+      } else {
+        assert.deepEqual(require(`./fixtures/text/${fixtureName}`), result);
+      }
     });
 
     it('returns right aligned text', function() {
       textOptions.alignment = 'right';
-      assert.deepEqual(require('./fixtures/right-aligned-text'), dotGenerator.text(textOptions));
+
+      var result = dotGenerator.text(textOptions),
+          fixtureName = 'right-aligned-text';
+
+      if(refreshFixtures) {
+        updateFixture(fixtureName, result);
+        assert.equal(true, false)
+      } else {
+        assert.deepEqual(require(`./fixtures/text/${fixtureName}`), result);
+      }
     });
 
     it('returns center aligned text', function() {
       textOptions.alignment = 'center';
-      assert.deepEqual(require('./fixtures/center-aligned-text'), dotGenerator.text(textOptions));
+
+      var result = dotGenerator.text(textOptions),
+          fixtureName = 'center-aligned-text';
+
+      if(refreshFixtures) {
+        updateFixture(fixtureName, result);
+        assert.equal(true, false)
+      } else {
+        assert.deepEqual(require(`./fixtures/text/${fixtureName}`), result);
+      }
     });
   });
 
   describe('positioning the textbox', function() {
     var textOptions = {
       text: 'HI',
-      width: 100,
+      width: 20,
       height: 6,
       font: 'system-6',
       color: '#FFFFFF',
@@ -63,13 +114,31 @@ describe('Generating dots from text', function() {
 
     it('defaults to coordinate 0,0', function() {
       textOptions.alignment = 'left';
-      assert.deepEqual(require('./fixtures/left-aligned-text'), dotGenerator.text(textOptions));
+
+      var result = dotGenerator.text(textOptions),
+          fixtureName = 'default-offset-text';
+
+      if(refreshFixtures) {
+        updateFixture(fixtureName, result);
+        assert.equal(true, false)
+      } else {
+        assert.deepEqual(require(`./fixtures/text/${fixtureName}`), result);
+      }
     });
 
     it('returns offset text to the starting row and column', function() {
       textOptions.startingRow = 3;
       textOptions.startingColumn = 5;
-      assert.deepEqual(require('./fixtures/offset-text'), dotGenerator.text(textOptions));
+
+      var result = dotGenerator.text(textOptions),
+          fixtureName = 'custom-offset-text';
+
+      if(refreshFixtures) {
+        updateFixture(fixtureName, result);
+        assert.equal(true, false)
+      } else {
+        assert.deepEqual(require(`./fixtures/text/${fixtureName}`), result);
+      }
     });
   });
 
@@ -89,7 +158,15 @@ describe('Generating dots from text', function() {
       });
 
       it('returns wrapped text left aligned', function() {
-        assert.deepEqual(require('./fixtures/wrapped-left-aligned-text'), dotGenerator.text(textOptions));
+        var result = dotGenerator.text(textOptions),
+            fixtureName = 'wrapped-left-aligned-text';
+
+        if(refreshFixtures) {
+          updateFixture(fixtureName, result);
+          assert.equal(true, false)
+        } else {
+          assert.deepEqual(require(`./fixtures/text/${fixtureName}`), result);
+        }
       });
     });
 
@@ -100,7 +177,15 @@ describe('Generating dots from text', function() {
       });
 
       it('returns wrapped text right aligned', function() {
-        assert.deepEqual(require('./fixtures/wrapped-right-aligned-text'), dotGenerator.text(textOptions));
+        var result = dotGenerator.text(textOptions),
+            fixtureName = 'wrapped-right-aligned-text';
+
+        if(refreshFixtures) {
+          updateFixture(fixtureName, result);
+          assert.equal(true, false)
+        } else {
+          assert.deepEqual(require(`./fixtures/text/${fixtureName}`), result);
+        }
       });
     });
 
@@ -111,7 +196,15 @@ describe('Generating dots from text', function() {
       });
 
       it('returns wrapped text center aligned', function() {
-        assert.deepEqual(require('./fixtures/wrapped-center-aligned-text'), dotGenerator.text(textOptions));
+        var result = dotGenerator.text(textOptions),
+            fixtureName = 'wrapped-center-aligned-text';
+
+        if(refreshFixtures) {
+          updateFixture(fixtureName, result);
+          assert.equal(true, false)
+        } else {
+          assert.deepEqual(require(`./fixtures/text/${fixtureName}`), result);
+        }
       });
     });
 
@@ -123,12 +216,30 @@ describe('Generating dots from text', function() {
 
       it('returns a hypenated word across two lines', function() {
         textOptions.text = 'ROUGH';
-        assert.deepEqual(require('./fixtures/hypenated-text'), dotGenerator.text(textOptions));
+
+        var result = dotGenerator.text(textOptions),
+            fixtureName = 'hypenated-text';
+
+        if(refreshFixtures) {
+          updateFixture(fixtureName, result);
+          assert.equal(true, false)
+        } else {
+          assert.deepEqual(require(`./fixtures/text/${fixtureName}`), result);
+        }
       });
 
       it('returns a hypenated word across as many lines as needed', function() {
         textOptions.text = 'DISHWASHER';
-        assert.deepEqual(require('./fixtures/hypenated-multi-line-text'), dotGenerator.text(textOptions));
+
+        var result = dotGenerator.text(textOptions),
+            fixtureName = 'hypenated-multi-line-text';
+
+        if(refreshFixtures) {
+          updateFixture(fixtureName, result);
+          assert.equal(true, false)
+        } else {
+          assert.deepEqual(require(`./fixtures/text/${fixtureName}`), result);
+        }
       });
     });
   });
