@@ -6,7 +6,7 @@ function updateFixture(fileName, result) {
   fs.writeFile(`./test/fixtures/text/${fileName}.json`, JSON.stringify(result, null, 2), 'utf-8');
 }
 
-var refreshFixtures = true;
+var refreshFixtures = false;
 
 describe('Generating dots from text', function() {
 
