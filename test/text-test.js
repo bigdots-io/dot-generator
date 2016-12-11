@@ -22,7 +22,7 @@ describe('Generating dots from text', function() {
 
     it('renders a space between words when appropiate', function() {
       var result = dotGenerator.text(textOptions),
-          fixtureName = 'spaces-between-words-text';
+          fixtureName = 'spaces-between-words';
 
       if(refreshFixtures) {
         updateFixture(fixtureName, result);
@@ -36,7 +36,45 @@ describe('Generating dots from text', function() {
       textOptions.spaceBetweenLetters = 2;
 
       var result = dotGenerator.text(textOptions),
-          fixtureName = 'spaces-between-letters-text';
+          fixtureName = 'spaces-between-letters';
+
+      if(refreshFixtures) {
+        updateFixture(fixtureName, result);
+        assert.equal(true, false)
+      } else {
+        assert.deepEqual(require(`./fixtures/text/${fixtureName}`), result);
+      }
+    });
+  });
+
+  describe('setting colors', function() {
+    var textOptions = {
+      text: 'HI',
+      font: 'system-6',
+      color: '#FFFFFF',
+      alignment: 'left'
+    };
+
+    it('renders the supplied text color', function() {
+      textOptions.color = '#ff0000';
+
+      var result = dotGenerator.text(textOptions),
+          fixtureName = 'text-color';
+
+      if(refreshFixtures) {
+        updateFixture(fixtureName, result);
+        assert.equal(true, false)
+      } else {
+        assert.deepEqual(require(`./fixtures/text/${fixtureName}`), result);
+      }
+    });
+
+    it('renders the supplied background color', function() {
+      textOptions.backgroundColor = '#ff0000';
+      textOptions.color = '#FFFFFF';
+
+      var result = dotGenerator.text(textOptions),
+          fixtureName = 'background-color';
 
       if(refreshFixtures) {
         updateFixture(fixtureName, result);
@@ -59,7 +97,7 @@ describe('Generating dots from text', function() {
       textOptions.height = 4;
 
       var result = dotGenerator.text(textOptions),
-          fixtureName = 'fixed-height-text';
+          fixtureName = 'fixed-height';
 
       if(refreshFixtures) {
         updateFixture(fixtureName, result);
@@ -74,7 +112,7 @@ describe('Generating dots from text', function() {
     //   textOptions.width = 6;
     //
     //   var result = dotGenerator.text(textOptions),
-    //       fixtureName = 'fixed-width-text';
+    //       fixtureName = 'fixed-width';
     //
     //   if(refreshFixtures) {
     //     updateFixture(fixtureName, result);
@@ -98,7 +136,7 @@ describe('Generating dots from text', function() {
       textOptions.alignment = 'left';
 
       var result = dotGenerator.text(textOptions),
-          fixtureName = 'left-aligned-text';
+          fixtureName = 'left-aligned';
 
       if(refreshFixtures) {
         updateFixture(fixtureName, result);
@@ -112,7 +150,7 @@ describe('Generating dots from text', function() {
       textOptions.alignment = 'right';
 
       var result = dotGenerator.text(textOptions),
-          fixtureName = 'right-aligned-text';
+          fixtureName = 'right-aligned';
 
       if(refreshFixtures) {
         updateFixture(fixtureName, result);
@@ -126,7 +164,7 @@ describe('Generating dots from text', function() {
       textOptions.alignment = 'center';
 
       var result = dotGenerator.text(textOptions),
-          fixtureName = 'center-aligned-text';
+          fixtureName = 'center-aligned';
 
       if(refreshFixtures) {
         updateFixture(fixtureName, result);
@@ -150,7 +188,7 @@ describe('Generating dots from text', function() {
       textOptions.alignment = 'left';
 
       var result = dotGenerator.text(textOptions),
-          fixtureName = 'default-offset-text';
+          fixtureName = 'default-offset';
 
       if(refreshFixtures) {
         updateFixture(fixtureName, result);
@@ -165,7 +203,7 @@ describe('Generating dots from text', function() {
       textOptions.startingColumn = 5;
 
       var result = dotGenerator.text(textOptions),
-          fixtureName = 'custom-offset-text';
+          fixtureName = 'custom-offset';
 
       if(refreshFixtures) {
         updateFixture(fixtureName, result);
@@ -192,7 +230,7 @@ describe('Generating dots from text', function() {
 
       it('returns wrapped text left aligned', function() {
         var result = dotGenerator.text(textOptions),
-            fixtureName = 'wrapped-left-aligned-text';
+            fixtureName = 'wrapped-left-aligned';
 
         if(refreshFixtures) {
           updateFixture(fixtureName, result);
@@ -211,7 +249,7 @@ describe('Generating dots from text', function() {
 
       it('returns wrapped text right aligned', function() {
         var result = dotGenerator.text(textOptions),
-            fixtureName = 'wrapped-right-aligned-text';
+            fixtureName = 'wrapped-right-aligned';
 
         if(refreshFixtures) {
           updateFixture(fixtureName, result);
@@ -230,7 +268,7 @@ describe('Generating dots from text', function() {
 
       it('returns wrapped text center aligned', function() {
         var result = dotGenerator.text(textOptions),
-            fixtureName = 'wrapped-center-aligned-text';
+            fixtureName = 'wrapped-center-aligned';
 
         if(refreshFixtures) {
           updateFixture(fixtureName, result);
@@ -251,7 +289,7 @@ describe('Generating dots from text', function() {
         textOptions.text = 'ROUGH';
 
         var result = dotGenerator.text(textOptions),
-            fixtureName = 'hypenated-text';
+            fixtureName = 'hypenated';
 
         if(refreshFixtures) {
           updateFixture(fixtureName, result);
@@ -265,7 +303,7 @@ describe('Generating dots from text', function() {
         textOptions.text = 'DISHWASHER';
 
         var result = dotGenerator.text(textOptions),
-            fixtureName = 'hypenated-multi-line-text';
+            fixtureName = 'hypenated-multi-line';
 
         if(refreshFixtures) {
           updateFixture(fixtureName, result);
