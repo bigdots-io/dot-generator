@@ -24,7 +24,9 @@ class DotGenerator {
     if(options.backgroundColor) {
       var out = this.color(options.backgroundColor, {
         width: result.width,
-        height: result.height
+        height: result.height,
+        startingColumn: options.startingColumn,
+        startingRow: options.startingRow
       });
 
       result.dots.forEach(function(dot) {
@@ -50,20 +52,26 @@ class DotGenerator {
     new ImageExploder(url).process(callbacks);
   }
 
-  color(color, dimensions) {
-    var height = dimensions.width,
-        width = dimensions.width,
+  color(color, options) {
+    var height = options.height,
+        width = options.width,
+        startingColumn = options.startingColumn || 0,
+        startingRow = options.startingRow || 0,
         out = [];
 
     for(var y = 0; y < height; y++) {
       for(var x = 0; x < width; x++) {
-        out.push({y: y, x: x, hex: color});
+        out.push({
+          y: y + startingRow,
+          x: x + startingColumn,
+          hex: color
+        });
       }
     }
 
     return {
-      width: dimensions.width,
-      height: dimensions.height,
+      width: width,
+      height: height,
       dots: out
     };
   }

@@ -212,6 +212,23 @@ describe('Generating dots from text', function() {
         assert.deepEqual(require(`./fixtures/text/${fixtureName}`), result);
       }
     });
+
+    it('returns an offset background color when supplied', function() {
+      textOptions.backgroundColor = '#ff0000';
+      textOptions.color = '#FFFFFF';
+      textOptions.startingRow = 3;
+      textOptions.startingColumn = 5;
+
+      var result = dotGenerator.text(textOptions),
+          fixtureName = 'offset-background-color';
+
+      if(refreshFixtures) {
+        updateFixture(fixtureName, result);
+        assert.equal(true, false)
+      } else {
+        assert.deepEqual(require(`./fixtures/text/${fixtureName}`), result);
+      }
+    });
   });
 
   describe('text wrapping', function() {
