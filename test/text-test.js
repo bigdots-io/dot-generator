@@ -6,7 +6,7 @@ function updateFixture(fileName, result) {
   fs.writeFile(`./test/fixtures/text/${fileName}.json`, JSON.stringify(result, null, 2), 'utf-8');
 }
 
-var refreshFixtures = false;
+var refreshFixtures = true;
 
 describe('Generating dots from text', function() {
 
@@ -37,6 +37,44 @@ describe('Generating dots from text', function() {
 
       var result = dotGenerator.text(textOptions),
           fixtureName = 'spaces-between-letters-text';
+
+      if(refreshFixtures) {
+        updateFixture(fixtureName, result);
+        assert.equal(true, false)
+      } else {
+        assert.deepEqual(require(`./fixtures/text/${fixtureName}`), result);
+      }
+    });
+  });
+
+  describe('setting colors', function() {
+    var textOptions = {
+      text: 'HI',
+      font: 'system-6',
+      color: '#FFFFFF',
+      alignment: 'left'
+    };
+
+    it('renders the supplied text color', function() {
+      textOptions.color = '#ff0000';
+
+      var result = dotGenerator.text(textOptions),
+          fixtureName = 'text-color';
+
+      if(refreshFixtures) {
+        updateFixture(fixtureName, result);
+        assert.equal(true, false)
+      } else {
+        assert.deepEqual(require(`./fixtures/text/${fixtureName}`), result);
+      }
+    });
+
+    it('renders the supplied background color', function() {
+      textOptions.backgroundColor = '#ff0000';
+      textOptions.color = '#FFFFFF';
+
+      var result = dotGenerator.text(textOptions),
+          fixtureName = 'background-color';
 
       if(refreshFixtures) {
         updateFixture(fixtureName, result);

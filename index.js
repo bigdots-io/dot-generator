@@ -21,24 +21,29 @@ class DotGenerator {
       spaceBetweenLines: options.spaceBetweenLines
     }).write(options.text);
 
-    var out = this.color('#000000', {
-      width: result.width,
-      height: result.height
-    });
-
-    result.dots.forEach(function(dot) {
-      var index = out.dots.findIndex(function(item) {
-        return item.y === dot.y && item.x === dot.x;
+    if(options.backgroundColor) {
+      var out = this.color(options.backgroundColor, {
+        width: result.width,
+        height: result.height
       });
 
-      if(index) {
-        out.dots[index].hex = dot.hex
-      } else {
-        out.dots.push(dot);
-      }
-    });
+      result.dots.forEach(function(dot) {
+        var index = out.dots.findIndex(function(item) {
+          return item.y === dot.y && item.x === dot.x;
+        });
 
-    return out;
+        if(index) {
+          out.dots[index].hex = dot.hex;
+        } else {
+          out.dots.push(dot);
+        }
+      });
+
+      return out;
+
+    } else {
+      return result;
+    }
   }
 
   image(url, callbacks) {
