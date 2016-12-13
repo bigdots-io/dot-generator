@@ -8,7 +8,7 @@
     "fixture-ui": "node ./node_modules/.bin/http-server ./test"
   },
   "dependencies": {
-    "fonts": "bigdots-io/fonts.git#v0.3.6",
+    "fonts": "bigdots-io/fonts.git#v0.3.7",
     "get-pixels": "^3.3.0"
   },
   "author": "",
